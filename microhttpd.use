@@ -1,0 +1,6 @@
+Name: microhttpd
+Version: 0.1
+Description: Bindings for libmicrohttpd
+Pkgs: libmicrohttpd
+SourcePath: source
+
