@@ -15,5 +15,5 @@ script:
   - export OOC_LIBS=$PWD
   - cd samples
   - mkdir -p travis
-  - rock -v hellobrowser -o=travis/hellobrowser -L$_PREFIX/lib -I$_PREFIX/include && LD_LIBRARY_PATH=$_PREFIX/lib echo " " | travis/hellobrowser
+  - rock -v hellobrowser -o=travis/hellobrowser -L../prefix/lib -I../prefix/include && LD_LIBRARY_PATH=../prefix/lib echo " " | travis/hellobrowser
 
