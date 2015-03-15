@@ -14,7 +14,8 @@ before_install:
 script:
   - export OOC_LIBS=$PWD
   - export PKG_CONFIG_PATH=$_PREFIX/lib/pkgconfig
+  - export LD_LIBRARY_PATH=../prefix/lib
   - cd samples
   - mkdir -p travis
-  - rock -v hellobrowser -o=travis/hellobrowser -L../prefix/lib -I../prefix/include && LD_LIBRARY_PATH=../prefix/lib echo " " | travis/hellobrowser
+  - rock -v hellobrowser -o=travis/hellobrowser -L../prefix/lib -I../prefix/include && echo " " | travis/hellobrowser
 
