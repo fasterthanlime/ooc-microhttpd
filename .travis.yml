@@ -4,9 +4,10 @@ before_install:
   - (cd rock && make -s quick-rescue)
   - export PATH=$PATH:$PWD/rock/bin
   - wget http://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.39.tar.gz -O - | tar xz
+  - export _PREFIX=$PWD/prefix
   - mkdir prefix
   - cd libmicrohttpd-*
-  - ./configure --prefix=../prefix
+  - ./configure --prefix=$PWD/prefix
   - make install -j4
   - cd ..
 
@@ -14,5 +15,5 @@ script:
   - export OOC_LIBS=$PWD
   - cd samples
   - mkdir -p travis
-  - rock -v hellobrowser -o=travis/hellobrowser -L../prefix/lib -I../prefix/include && LD_LIBRARY_PATH=../prefix/lib echo " " | travis/hellobrowser
+  - rock -v hellobrowser -o=travis/hellobrowser -L$_PREFIX/lib -I$_PREFIX/include && LD_LIBRARY_PATH=$_PREFIX/lib echo " " | travis/hellobrowser
 
