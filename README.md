@@ -6,7 +6,7 @@ A set of basic ooc bindings for libmicrohttpd.
 
 ### Authors
 
-  * Amos Wenger <fasterthanlime@gmail.com>
+  * Amos Wenger
   
 ### Links
 
