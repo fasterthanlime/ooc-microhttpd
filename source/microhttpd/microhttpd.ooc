@@ -7,6 +7,9 @@ MHDConnection: cover from struct MHD_Connection* {
     queueResponse: extern(MHD_queue_response) func (
         statusCode: UInt, response: MHDResponse) -> Int
 
+    suspend: extern(MHD_suspend_connection) func
+    resume: extern(MHD_resume_connection) func
+
 }
 
 MHDResponse: cover from struct MHD_Response* {
@@ -27,6 +30,7 @@ MHDDaemon: cover from struct MHD_Daemon* {
         ap: Int) -> This
 
     stop: extern(MHD_stop_daemon) func
+    run: extern(MHD_run) func
 
 }
 
