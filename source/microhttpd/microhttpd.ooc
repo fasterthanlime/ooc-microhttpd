@@ -30,7 +30,7 @@ MHDDaemon: cover from struct MHD_Daemon* {
 
 }
 
-MHDResponse: enum fron Int {
+MHDRetCode: enum from Int {
     yes: extern(MHD_YES)
     no:  extern(MHD_NO)
 }
