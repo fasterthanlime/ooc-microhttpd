@@ -19,5 +19,5 @@ script:
   - mkdir -p travis
   - rock -v hello-browser -o=travis/hello-browser -L../prefix/lib -I../prefix/include
   - travis/hello-browser &
-  - curl http://localhost:4141
+  - curl -v http://localhost:4141
 
