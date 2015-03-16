@@ -2,6 +2,10 @@
 use microhttpd
 import microhttpd/microhttpd
 
+import os/Time
+
+running := true
+
 handleRequest: func (cls: Pointer,
     connection: MHDConnection,
     url: CString, method: CString,
@@ -10,6 +14,7 @@ handleRequest: func (cls: Pointer,
     response := MHDResponse createFromBuffer(page size, page toCString(), MHDResponseMemoryMode persistent)
     ret := connection queueResponse(200, response)
     response destroy()
+    running = false
     ret
 }
 
@@ -20,7 +25,10 @@ main: func {
         handleRequest&, null, MHDOption end)
 
     "Listening on port #{port}" println()
-    stdin readLine()
+
+    while (running) {
+        Time sleepMilli(100)
+    }
 
     daemon stop()
 
