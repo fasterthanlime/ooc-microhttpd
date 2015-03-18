@@ -34,6 +34,20 @@ MHDDaemon: cover from struct MHD_Daemon* {
 
 }
 
+MHDPostProcessor: cover from struct MHD_PostProcessor* {
+    
+    new: extern(MHD_create_post_processor) static func (
+        connection: MHDConnection,
+        bufferSize: SizeT,
+        iter: Pointer, iterCls: Pointer) -> This
+
+    process: extern(MHD_post_process) func (
+        postData: Pointer, postDataLen: SizeT)
+
+    destroy: extern(MHD_destroy_post_processor) func
+
+}
+
 MHDRetCode: enum from Int {
     yes: extern(MHD_YES)
     no:  extern(MHD_NO)
